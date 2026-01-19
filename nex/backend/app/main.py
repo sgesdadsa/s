@@ -11,7 +11,7 @@ import uvicorn
 
 from app.ai_agent.agent_core import AgentCore
 from app.database.core import engine, Base, get_db
-from app.api import auth, users, apps, chat, admin, store
+from app.api import auth, users, apps, chat, admin, store, terms
 from app.websocket.manager import ConnectionManager
 from app.config import settings
 
@@ -63,6 +63,7 @@ app.add_middleware(
 )
 
 # Include routers
+app.include_router(terms.router, prefix="/api/terms", tags=["Terms & Privacy"])
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(users.router, prefix="/api/users", tags=["Users"])
 app.include_router(apps.router, prefix="/api/apps", tags=["Apps"])
@@ -84,7 +85,14 @@ async def root():
         "status": "running",
         "agent_status": app.state.agent.status,
         "docs": "/docs",
+        "legal": {
+            "terms": "/api/terms/content/terms",
+            "privacy": "/api/terms/content/privacy",
+            "disclaimer": "/api/terms/content/disclaimer",
+            "check_acceptance": "/api/terms/check"
+        },
         "endpoints": {
+            "terms": "/api/terms",
             "auth": "/api/auth",
             "users": "/api/users",
             "apps": "/api/apps",

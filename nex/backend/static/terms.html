@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEX Platform - Termos de Uso e Privacidade</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f7f7f7;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            background: #f7f7f7;
+            border: none;
+            font-size: 1em;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: #e8e8e8;
+        }
+
+        .tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .content {
+            padding: 40px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .content h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .content h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .content p, .content li {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .content ul {
+            margin-left: 20px;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .danger {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            padding: 30px 40px;
+            background: #f7f7f7;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-container label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-accept {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-accept:hover:not(:disabled) {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .btn-accept:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .btn-decline {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-decline:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+        }
+
+        .summary-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .icon {
+            font-size: 1.5em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔒 NEX Platform</h1>
+            <p>Termos de Uso, Privacidade e Anonimato</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('summary')">📋 Resumo</button>
+            <button class="tab" onclick="showTab('terms')">📜 Termos de Uso</button>
+            <button class="tab" onclick="showTab('privacy')">🔒 Privacidade</button>
+            <button class="tab" onclick="showTab('disclaimer')">⚠️ Disclaimer</button>
+        </div>
+
+        <div class="content">
+            <!-- Summary Tab -->
+            <div id="summary" class="tab-content active">
+                <div class="success">
+                    <h3>✅ Bem-vindo ao NEX Platform!</h3>
+                    <p>Antes de começar, é importante que você leia e aceite nossos termos.</p>
+                </div>
+
+                <h2>🔐 Privacidade e Anonimato Garantidos</h2>
+                <div class="summary-box">
+                    <div class="summary-item">
+                        <span class="icon">🙈</span>
+                        <strong>Zero Rastreamento</strong> - Não coletamos dados de uso
+                    </div>
+                    <div class="summary-item">
+                        <span class="icon">🏠</span>
+                        <strong>100% Local</strong> - Tudo processado em sua máquina
+                    </div>
+                    <div class="summary-item">
+                        <span class="icon">🚫</span>
+                        <strong>Sem Compartilhamento</strong> - Seus dados são seus
+                    </div>
+                    <div class="summary-item">
+                        <span class="icon">🔓</span>
+                        <strong>Controle Total</strong> - Delete seus dados a qualquer momento
+                    </div>
+                </div>
+
+                <h2>✅ Você PODE:</h2>
+                <ul>
+                    <li>Usar para desenvolvimento legítimo de software</li>
+                    <li>Criar e comercializar suas aplicações</li>
+                    <li>Usar anonimamente (sem fornecer dados pessoais)</li>
+                    <li>Modificar configurações para uso pessoal</li>
+                </ul>
+
+                <h2>❌ Você NÃO PODE:</h2>
+                <ul>
+                    <li>Criar malware, vírus ou software malicioso</li>
+                    <li>Usar para atividades ilegais</li>
+                    <li>Violar privacidade de terceiros</li>
+                    <li>Redistribuir o NEX Platform sem autorização</li>
+                </ul>
+
+                <div class="warning">
+                    <h3>⚠️ Importante:</h3>
+                    <p><strong>Software fornecido "AS IS"</strong> - Você é responsável por todo código que criar. Revise e teste antes de usar em produção.</p>
+                </div>
+            </div>
+
+            <!-- Terms Tab -->
+            <div id="terms" class="tab-content">
+                <h2>📜 Termos de Uso</h2>
+                <p>Ao usar o NEX Platform, você concorda com os seguintes termos:</p>
+
+                <h3>1. Uso Legal e Ético</h3>
+                <p>Você se compromete a usar o NEX Platform apenas para fins legais e éticos, respeitando todas as leis aplicáveis.</p>
+
+                <h3>2. Responsabilidade sobre Código Gerado</h3>
+                <p>Você é totalmente responsável por todo código gerado através do NEX Platform, incluindo aplicações, executáveis e suas consequências.</p>
+
+                <h3>3. Isenção de Responsabilidade</h3>
+                <p>Os desenvolvedores não são responsáveis por danos, perdas ou problemas decorrentes do uso do software.</p>
+
+                <h3>4. Propriedade Intelectual</h3>
+                <p>Você é proprietário de todo código que criar. O NEX Platform não reivindica direitos sobre suas criações.</p>
+
+                <div class="danger">
+                    <strong>🚫 Atividades Proibidas:</strong>
+                    <ul>
+                        <li>Desenvolvimento de malware ou vírus</li>
+                        <li>Hacking, cracking ou exploits</li>
+                        <li>Fraude, phishing ou engenharia social</li>
+                        <li>Violação de privacidade ou direitos autorais</li>
+                        <li>Qualquer atividade ilegal</li>
+                    </ul>
+                </div>
+
+                <p><a href="/api/terms/content/terms" target="_blank">📄 Leia os Termos Completos</a></p>
+            </div>
+
+            <!-- Privacy Tab -->
+            <div id="privacy" class="tab-content">
+                <h2>🔒 Política de Privacidade</h2>
+
+                <div class="success">
+                    <h3>🛡️ Seu Direito à Privacidade</h3>
+                    <p>O NEX Platform foi desenvolvido com privacidade e anonimato como prioridade máxima.</p>
+                </div>
+
+                <h3>✅ O que NÃO coletamos:</h3>
+                <ul>
+                    <li>❌ Informações pessoais identificáveis</li>
+                    <li>❌ Histórico de navegação</li>
+                    <li>❌ Dados de uso ou telemetria</li>
+                    <li>❌ Endereço IP ou localização</li>
+                    <li>❌ Informações de dispositivo</li>
+                </ul>
+
+                <h3>💾 Dados Armazenados Localmente:</h3>
+                <ul>
+                    <li>Configurações do sistema</li>
+                    <li>Seus projetos e código-fonte</li>
+                    <li>Histórico de chat com AI (local)</li>
+                    <li>Logs técnicos (deletáveis)</li>
+                </ul>
+
+                <h3>🔐 Segurança:</h3>
+                <ul>
+                    <li>Senhas criptografadas (bcrypt)</li>
+                    <li>Armazenamento local apenas</li>
+                    <li>Sem envio de dados externos</li>
+                    <li>Você controla tudo</li>
+                </ul>
+
+                <h3>🌐 APIs Externas (Opcional):</h3>
+                <p>Se você configurar APIs como OpenAI, seus dados serão enviados para esses serviços. Leia as políticas de privacidade deles.</p>
+
+                <p><a href="/api/terms/content/privacy" target="_blank">📄 Leia a Política Completa</a></p>
+            </div>
+
+            <!-- Disclaimer Tab -->
+            <div id="disclaimer" class="tab-content">
+                <h2>⚠️ Disclaimer e Avisos Legais</h2>
+
+                <div class="danger">
+                    <h3>🔴 IMPORTANTE - Leia com Atenção</h3>
+                    <p>Este software é fornecido <strong>"COMO ESTÁ"</strong> (AS IS), sem garantias de qualquer tipo.</p>
+                </div>
+
+                <h3>⚠️ Uso por sua Conta e Risco:</h3>
+                <ul>
+                    <li>Não garantimos funcionamento perfeito</li>
+                    <li>IA pode gerar código com bugs ou vulnerabilidades</li>
+                    <li>Você deve revisar todo código gerado</li>
+                    <li>Teste extensivamente antes de produção</li>
+                </ul>
+
+                <h3>🚫 Limitação de Responsabilidade:</h3>
+                <p>Os desenvolvedores NÃO são responsáveis por:</p>
+                <ul>
+                    <li>Perda de dados ou lucros</li>
+                    <li>Danos diretos ou indiretos</li>
+                    <li>Bugs em código gerado</li>
+                    <li>Problemas com aplicações que você criar</li>
+                    <li>Violações de segurança</li>
+                </ul>
+
+                <h3>🤖 Sobre a Inteligência Artificial:</h3>
+                <ul>
+                    <li>A IA pode errar ou gerar código imperfeito</li>
+                    <li>Não substitui revisão humana</li>
+                    <li>Sempre valide sugestões da IA</li>
+                    <li>Use IA como ferramenta auxiliar</li>
+                </ul>
+
+                <div class="warning">
+                    <strong>⚠️ Antes de Usar em Produção:</strong>
+                    <ul>
+                        <li>Faça auditoria de segurança completa</li>
+                        <li>Teste extensivamente</li>
+                        <li>Revise todo código gerado</li>
+                        <li>Implemente práticas de segurança</li>
+                        <li>Mantenha backups regulares</li>
+                    </ul>
+                </div>
+
+                <p><a href="/api/terms/content/disclaimer" target="_blank">📄 Leia o Disclaimer Completo</a></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="checkbox-container">
+                <input type="checkbox" id="acceptTerms" onchange="toggleAcceptButton()">
+                <label for="acceptTerms">
+                    <strong>Li e aceito os Termos de Uso, Política de Privacidade e Disclaimer.</strong>
+                    Concordo em usar o NEX Platform apenas para fins legais e éticos.
+                </label>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-decline" onclick="decline()">
+                    ❌ Não Aceito
+                </button>
+                <button class="btn btn-accept" id="acceptBtn" disabled onclick="accept()">
+                    ✅ Aceito os Termos
+                </button>
+            </div>
+
+            <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9em;">
+                NEX Platform v1.0 - © 2026 - Privacidade e Anonimato Garantidos
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active to clicked button
+            event.target.classList.add('active');
+        }
+
+        function toggleAcceptButton() {
+            const checkbox = document.getElementById('acceptTerms');
+            const acceptBtn = document.getElementById('acceptBtn');
+            acceptBtn.disabled = !checkbox.checked;
+        }
+
+        async function accept() {
+            try {
+                // Send acceptance to server
+                const response = await fetch('/api/terms/accept', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        user_id: 'anonymous',
+                        accepted_at: new Date().toISOString(),
+                        terms_version: '1.0',
+                        privacy_version: '1.0',
+                        disclaimer_accepted: true
+                    })
+                });
+
+                if (response.ok) {
+                    alert('✅ Termos aceitos com sucesso!\n\nBem-vindo ao NEX Platform!');
+                    // Redirect to main page or docs
+                    window.location.href = '/docs';
+                } else {
+                    alert('❌ Erro ao aceitar termos. Tente novamente.');
+                }
+            } catch (error) {
+                console.error('Error accepting terms:', error);
+                alert('❌ Erro de conexão. Verifique se o servidor está rodando.');
+            }
+        }
+
+        function decline() {
+            if (confirm('⚠️ Ao recusar os termos, você não poderá usar o NEX Platform.\n\nDeseja realmente sair?')) {
+                alert('Obrigado por visitar. O NEX Platform será encerrado.');
+                window.location.href = 'about:blank';
+            }
+        }
+
+        // Check if terms are already accepted
+        window.onload = async function() {
+            try {
+                const response = await fetch('/api/terms/check');
+                const data = await response.json();
+
+                if (data.terms_accepted) {
+                    // Already accepted, redirect to main page
+                    window.location.href = '/docs';
+                }
+            } catch (error) {
+                console.log('Could not check terms status');
+            }
+        };
+    </script>
+</body>
+</html>
