@@ -10,6 +10,7 @@ from .config import config
 from .models import model_manager
 from .chat import start_interactive_chat
 from .server import start_server_process, stop_server_process
+from .studio_cli import studio
 
 console = Console()
 
@@ -33,10 +34,18 @@ def cli():
       server    Manage the local API server
 
     \b
+    Visual Studio:
+      studio    Launch MyLLM Studio (Visual Interface)
+
+    \b
     Configuration:
       config    Manage configuration settings
     """
     pass
+
+
+# Add studio command group
+cli.add_command(studio)
 
 
 # ==================== MODEL COMMANDS ====================
