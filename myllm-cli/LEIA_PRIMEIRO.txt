@@ -1,0 +1,162 @@
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║            MyLLM CLI - Como Começar                      ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝
+
+📌 INÍCIO RÁPIDO (Windows):
+
+1. Abra esta pasta no Explorador de Arquivos
+
+2. Execute: COMECE_AQUI.bat
+   (Clique duas vezes no arquivo)
+
+3. Siga o menu interativo
+
+
+📌 INSTALAÇÃO MANUAL:
+
+1. Abra o Prompt de Comando (CMD) como Administrador
+
+2. Navegue até esta pasta:
+   cd C:\caminho\para\myllm-cli
+
+3. Instale as dependências:
+   pip install click rich requests pyyaml tabulate fastapi uvicorn pydantic
+
+4. Instale o MyLLM CLI:
+   pip install -e .
+
+5. Configure o diretório dos modelos:
+   myllm config set models_directory "C:\seu\caminho\modelos"
+
+6. Use:
+   myllm --help
+   myllm ls
+   myllm load nome-do-modelo
+   myllm chat
+
+
+📌 SE NÃO FUNCIONAR:
+
+• Execute: diagnose.bat
+  (Para verificar o que está faltando)
+
+• Execute: test_simple.py
+  python test_simple.py
+
+• Use python -m ao invés do comando direto:
+  python -m myllm.cli --help
+  python -m myllm.cli ls
+
+• Leia: TROUBLESHOOTING_WINDOWS.md
+  (Solução para todos os problemas comuns)
+
+
+📌 ARQUIVOS IMPORTANTES:
+
+COMECE_AQUI.bat              ← EXECUTE ESTE PRIMEIRO!
+diagnose.bat                 ← Verifica instalação
+test_simple.py              ← Testa se funciona
+install_basic.bat           ← Instala sem llama-cpp
+
+TROUBLESHOOTING_WINDOWS.md  ← Solução de problemas
+WINDOWS_GUIDE.md            ← Guia completo Windows
+QUICKSTART.md               ← Início rápido
+README.md                   ← Documentação completa
+
+
+📌 COMANDOS BÁSICOS:
+
+# Ver modelos disponíveis
+myllm ls
+
+# Carregar modelo
+myllm load nome-do-modelo
+
+# Carregar com GPU máximo
+myllm load nome-do-modelo --gpu max
+
+# Ver modelos carregados
+myllm ps
+
+# Iniciar chat
+myllm chat
+
+# Ver configuração
+myllm config show
+
+# Iniciar servidor API
+myllm server start
+
+
+📌 SE "myllm" NÃO FUNCIONAR:
+
+Use "python -m myllm.cli" ao invés de "myllm":
+
+python -m myllm.cli ls
+python -m myllm.cli load modelo
+python -m myllm.cli chat
+
+
+📌 NOTA SOBRE llama-cpp-python:
+
+Para carregar modelos GGUF, você precisa instalar:
+  pip install llama-cpp-python
+
+Se der erro, você precisa do Visual Studio Build Tools:
+  https://visualstudio.microsoft.com/downloads/
+  → Build Tools for Visual Studio 2022
+  → Marque "Desktop development with C++"
+
+Ou use install_basic.bat que instala tudo exceto llama-cpp-python.
+
+
+📌 ESTRUTURA:
+
+myllm-cli/
+├── COMECE_AQUI.bat          ← Execute este!
+├── diagnose.bat             ← Diagnóstico
+├── test_simple.py           ← Teste básico
+├── install.bat              ← Instalação completa
+├── install_basic.bat        ← Instalação sem modelos
+│
+├── myllm/                   ← Código principal
+│   ├── cli.py
+│   ├── config.py
+│   ├── models.py
+│   ├── chat.py
+│   └── server.py
+│
+├── examples/                ← Exemplos de uso
+│   ├── usage_example.py
+│   ├── openai_example.py
+│   └── daily_usage.bat
+│
+└── [Documentação]
+    ├── README.md
+    ├── WINDOWS_GUIDE.md
+    ├── TROUBLESHOOTING_WINDOWS.md
+    └── QUICKSTART.md
+
+
+📌 SUPORTE:
+
+Se nada funcionar, gere um relatório de diagnóstico:
+
+1. Execute: diagnose.bat > diagnostico.txt
+2. Execute: python test_simple.py > teste.txt
+3. Envie os arquivos .txt
+
+
+📌 DICA FINAL:
+
+Execute COMECE_AQUI.bat e siga o menu!
+É a maneira mais fácil de começar.
+
+
+═══════════════════════════════════════════════════════════
+
+Boa sorte! 🚀
+
+═══════════════════════════════════════════════════════════
